@@ -1,4 +1,12 @@
-module("Meta: test harness itself")
+function theTimeIsNowClock() {
+    return {
+        now: function() { return "The time is now"; }
+    };
+}
+
+//==================================================================================================
+
+module("Meta: test harness itself");
 
 test("The GUI container element exists in the test harness", function() {
     equals($("#testContainer").size(), 1);
@@ -100,11 +108,3 @@ test("Done click handling works without explicit clock passed", function() {
     $("#testContainer > button").trigger("click");
     ok($("#lastMarkTime").html().length > 0, "Timestamp must be not empty");
 });
-
-//==================================================================================================
-
-function theTimeIsNowClock() {
-    return {
-        now: function() { return "The time is now"; }
-    };
-}
