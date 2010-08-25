@@ -40,20 +40,20 @@ test("HTML GUI application version is defined", function() {
 });
 
 test("On init adds a button to the specified container", function() {
-    equals($("#testContainer > button").size(), 1);
+    equals($("#testContainer button").size(), 1);
 });
 
 test("\"Done\" button has a label", function() {
-    equals($("#testContainer > button").html(), "Done");
+    equals($("#testContainer button").html(), "Done");
 });
 
 test("\"Done\" button has the correct type", function() {
-    equals($("#testContainer > button").attr("type"), "button");
+    equals($("#testContainer button").attr("type"), "button");
 });
 
 test("On init adds the check marks' div", function() {
-    equals($("#testContainer > #checkMarks").size(), 1);
-    ok($("#testContainer > #checkMarks").is("div"));
+    equals($("#testContainer #checkMarks").size(), 1);
+    ok($("#testContainer #checkMarks").is("div"));
 });
 
 test("On init adds an empty last mark time span", function() {
@@ -63,10 +63,10 @@ test("On init adds an empty last mark time span", function() {
 });
 
 test("Clicking Done adds a check mark", function() {
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     equals($("#checkMarks").html(), "x");
     
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     equals($("#checkMarks").html(), "xx");
 });
 
@@ -75,10 +75,10 @@ test("Initial total count is zero", function() {
 });
 
 test("Clicking Done increments the total count", function() {
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     equals($("#totalCount").html(), "1");
     
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     equals($("#totalCount").html(), "2");
 });
 
@@ -96,13 +96,13 @@ module(
 test("On Done click the current timestamp is printed", function() {
     pomodoroLogger.application($, theTimeIsNowClock).init("#testContainer");
     
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     
     equals($("#lastMarkTime").html(), "The time is now");
 });
 
 test("Done click handling works with local clock passed", function() {
     pomodoroLogger.application($, pomodoroLogger.localClock).init("#testContainer");
-    $("#testContainer > button").trigger("click");
+    $("#testContainer button").trigger("click");
     ok($("#lastMarkTime").html().length > 0, "Timestamp must be not empty");
 });

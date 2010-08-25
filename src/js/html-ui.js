@@ -10,10 +10,12 @@ var pomodoroLogger = function() {
             var appendGuiContent = function(containerSelector) {
                 $(containerSelector).append(
                     [
+                        '<div class="pomodoroLogger">',
                         '<div id="checkMarks"/>',
                         '<div>Total: <span id="totalCount">0</span></div>',
                         '<div>Last: <span id="lastMarkTime"></span></div>',
-                        '<button id="doneButton" type="button">Done</button>'
+                        '<div id="buttonDiv"><button id="doneButton" type="button">Done</button></div>',
+                        '</div>'
                     ].join("\n")
                 );
             };
