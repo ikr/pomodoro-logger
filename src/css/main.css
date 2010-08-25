@@ -3,8 +3,9 @@
     font-family: Andale Mono, monospace;
 }
 
-.pomodoroLogger > div {
-    margin-bottom: 4px;
+.pomodoroLogger td {
+    padding-bottom: 4px;
+    padding-right: 8px;
 }
 
 #buttonDiv {

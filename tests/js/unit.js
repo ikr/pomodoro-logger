@@ -51,9 +51,9 @@ test("\"Done\" button has the correct type", function() {
     equals($("#testContainer button").attr("type"), "button");
 });
 
-test("On init adds the check marks' div", function() {
+test("On init adds the check marks' span", function() {
     equals($("#testContainer #checkMarks").size(), 1);
-    ok($("#testContainer #checkMarks").is("div"));
+    ok($("#testContainer #checkMarks").is("span"));
 });
 
 test("On init adds an empty last mark time span", function() {

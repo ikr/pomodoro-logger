@@ -11,9 +11,11 @@ var pomodoroLogger = function() {
                 $(containerSelector).append(
                     [
                         '<div class="pomodoroLogger">',
-                        '<div id="checkMarks"/>',
-                        '<div>Total: <span id="totalCount">0</span></div>',
-                        '<div>Last: <span id="lastMarkTime"></span></div>',
+                        '<table>',
+                        '<tr><td>Done:</td><td><span id="checkMarks"></span><td></tr>',
+                        '<tr><td>Total:</td><td><span id="totalCount">0</span></td></tr>',
+                        '<tr><td>Last:</td><td><span id="lastMarkTime"></span></td></tr>',
+                        '</table>',
                         '<div id="buttonDiv"><button id="doneButton" type="button">Done</button></div>',
                         '</div>'
                     ].join("\n")
