@@ -1,8 +1,6 @@
-function theTimeIsNowClock() {
-    return {
-        now: function() { return "The time is now"; }
-    };
-}
+var theTimeIsNowClock = {
+    now: function() { return "The time is now"; }
+};
 
 //==================================================================================================
 
@@ -23,20 +21,20 @@ module(
     {
         setup: function() {
             $('#testContainer').empty();
-            pomodoroLoggerApplication($, theTimeIsNowClock()).init("#testContainer");
+            pomodoroLogger.application($, theTimeIsNowClock).init("#testContainer");
         }
     }
 );
 
 test("HTML GUI application version is defined", function() {
     equals(
-        typeof pomodoroLoggerApplication($, theTimeIsNowClock()).version,
+        typeof pomodoroLogger.application($, theTimeIsNowClock).version,
         "string",
         "Application version is a string"
     );
     
     ok(
-        pomodoroLoggerApplication($, theTimeIsNowClock()).version.length > 0,
+        pomodoroLogger.application($, theTimeIsNowClock).version.length > 0,
         "Application version string isn't empty"
     );
 });
@@ -96,15 +94,15 @@ module(
 );
 
 test("On Done click the current timestamp is printed", function() {
-    pomodoroLoggerApplication($, theTimeIsNowClock()).init("#testContainer");
+    pomodoroLogger.application($, theTimeIsNowClock).init("#testContainer");
     
     $("#testContainer > button").trigger("click");
     
     equals($("#lastMarkTime").html(), "The time is now");
 });
 
-test("Done click handling works without explicit clock passed", function() {
-    pomodoroLoggerApplication($).init("#testContainer");
+test("Done click handling works with local clock passed", function() {
+    pomodoroLogger.application($, pomodoroLogger.localClock).init("#testContainer");
     $("#testContainer > button").trigger("click");
     ok($("#lastMarkTime").html().length > 0, "Timestamp must be not empty");
 });
