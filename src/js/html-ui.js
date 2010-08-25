@@ -1,9 +1,13 @@
 var pomodoroLoggerApplication = function($, clock) {
     var appendGuiContent = function(containerSelector) {
-        $(containerSelector).append('<div id="checkMarks"/>');
-        $(containerSelector).append('<div>Total: <span id="totalCount">0</span></div>');
-        $(containerSelector).append('<div>Last: <span id="lastMarkTime"></span></div>');
-        $(containerSelector).append('<button id="doneButton" type="button">Done</button>');
+        $(containerSelector).append(
+            [
+                '<div id="checkMarks"/>',
+                '<div>Total: <span id="totalCount">0</span></div>',
+                '<div>Last: <span id="lastMarkTime"></span></div>',
+                '<button id="doneButton" type="button">Done</button>'
+            ].join("\n")
+        );
     };
     
     var incrementElementInnerValue = function(elementSelector) {
