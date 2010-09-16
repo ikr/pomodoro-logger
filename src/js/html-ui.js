@@ -1,7 +1,7 @@
-var pomodoroLogger = function() {
+var pomodoroLogger = function () {
     return {
         localClock: {
-            now: function() {
+            now: function () {
                 return (new Date()).toTimeString();
             }
         },
@@ -28,8 +28,8 @@ var pomodoroLogger = function() {
                 $(elementSelector).append(currentValue + 1);
             };
     
-            var bindDoneButtonClickHandler = function() {
-                $("#doneButton").click(function() {
+            var bindDoneButtonClickHandler = function () {
+                $("#doneButton").click(function () {
                     $("#checkMarks").append("x");
                     incrementElementInnerValue("#totalCount");
                     $("#lastMarkTime").empty().append(clock.now());
